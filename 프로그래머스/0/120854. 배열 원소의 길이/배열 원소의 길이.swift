@@ -1,9 +1,9 @@
 import Foundation
 
 func solution(_ strlist:[String]) -> [Int] {
-    var countList:[Int] = []
-    for i in strlist {
-        countList.append(i.count)
+    var length:[Int] = []
+    for str in strlist {
+        length.append(str.count)
     }
-    return countList
+    return length
 }
