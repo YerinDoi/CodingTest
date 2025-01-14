@@ -2,10 +2,5 @@ import Foundation
 
 func solution(_ n:Int) -> Int {
     let root = Int(sqrt(Double(n)))  
-    
-    if root * root == n {
-        return 1  
-    } else {
-        return 2  
-    }
+    return root * root == n ? 1 : 2
 }
