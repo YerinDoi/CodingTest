@@ -19,4 +19,3 @@ function solution(arrayA, arrayB) {
     // Step 3. 둘 중 더 큰 값 반환 (둘 다 0이면 0 반환)
     return Math.max(candidateA, candidateB);
 }
-8
