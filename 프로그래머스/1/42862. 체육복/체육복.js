@@ -1,25 +1,16 @@
 function solution(n, lost, reserve) {
-    const students = {};
-    let answer = 0;
-    for(let i = 1; i <= n; i++){
-        students[i] = 1;
-    }
-    lost.forEach(number => students[number] -= 1);
-    reserve.forEach(number => students[number] += 1);
+    let realLost = lost.filter(l => !reserve.includes(l)).sort((a, b) => a - b);
+    let realReserve = reserve.filter(r => !lost.includes(r)).sort((a, b) => a - b);
 
-    for(let i = 1; i <= n; i++){
-        if(students[i] === 2 && students[i-1] === 0){
-                students[i-1]++;
-                students[i]--;
-        } else if(students[i] === 2 && students[i+1] === 0){
-                students[i+1]++;
-                students[i]--;
+    let count = n - realLost.length;
+
+    realLost.forEach(l => {
+        let index = realReserve.findIndex(r => Math.abs(r - l) === 1);
+        if (index !== -1) {
+            count++;
+            realReserve.splice(index, 1);
         }
-    }
-    for(let key in students){
-        if(students[key] >= 1){
-            answer++;
-        }
-    }
-    return answer;
+    });
+
+    return count;
 }
