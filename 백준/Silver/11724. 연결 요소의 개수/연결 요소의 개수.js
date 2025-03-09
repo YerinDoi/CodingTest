@@ -1,4 +1,5 @@
-const input = require("fs").readFileSync("/dev/stdin").toString().trim().split('\n');
+const fs = require("fs");
+const input = fs.readFileSync("/dev/stdin").toString().trim().split('\n');
 
 const [n, m] = input[0].split(' ').map(Number);
 const edges = input.slice(1).map((line) => line.split(' ').map(Number));
